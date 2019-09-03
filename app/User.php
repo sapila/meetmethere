@@ -2,8 +2,8 @@
 
 namespace App;
 
+use App\Dto\UserDto;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'api_token'
     ];
 
     /**
@@ -36,4 +36,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function toDto(): UserDto
+    {
+        $user = new UserDto();
+
+        $user->setId($this->id);
+        $user->setName($this->name);
+        $user->setEmail($this->email);
+        $user->setApiToken($this->api_token);
+        $user->setPassword($this->password);
+
+        return $user;
+    }
 }
