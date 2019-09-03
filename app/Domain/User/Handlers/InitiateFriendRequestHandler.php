@@ -31,9 +31,8 @@ class InitiateFriendRequestHandler implements ShouldQueue
         $friendRequest->setToUserId($event->toUser->getId());
         $friendRequest->setStatus('pending');
 
-        $this->repository->createFriendRequest($friendRequest);
+        $friendRequest = $this->repository->createFriendRequest($friendRequest);
 
-        echo 'made it to initiate';
-        event(new FriendRequestInitiated($event->fromUser, $event->toUser));
+        event(new FriendRequestInitiated($event->fromUser, $event->toUser, $friendRequest));
     }
 }

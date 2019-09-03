@@ -7,12 +7,14 @@ use App\Repositories\FriendRequestRepository;
 
 class FriendRequestLaravelRepository extends LaravelRepository implements FriendRequestRepository
 {
-    public function createFriendRequest(FriendRequest $friendRequest)
+    public function createFriendRequest(FriendRequest $friendRequest): FriendRequest
     {
-        $this->model->create([
+        $friendRequest = $this->model->create([
             'from_user_id' => $friendRequest->getFromUserId(),
             'to_user_id' => $friendRequest->getToUserId(),
             'status' => $friendRequest->getStatus()
         ]);
+
+        return $friendRequest;
     }
 }

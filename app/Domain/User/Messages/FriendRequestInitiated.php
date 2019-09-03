@@ -2,6 +2,7 @@
 
 namespace App\Domain\User\Messages;
 
+use App\Dto\FriendRequest;
 use App\Dto\User;
 use Illuminate\Queue\SerializesModels;
 
@@ -9,20 +10,19 @@ class FriendRequestInitiated
 {
     use SerializesModels;
 
-    /**
-     * @var User
-     */
+    /** @var User */
     public $fromUser;
 
-    /**
-     * @var User
-     */
+    /** @var User */
     public $toUser;
 
-    public function __construct(User $fromUser, User $toUser)
+    /** @var FriendRequest */
+    public $friendRequest;
+
+    public function __construct(User $fromUser, User $toUser, FriendRequest $friendRequest)
     {
-        //
         $this->fromUser = $fromUser;
         $this->toUser = $toUser;
+        $this->friendRequest = $friendRequest;
     }
 }
