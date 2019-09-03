@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use App\FriendRequest;
-use App\Repositories\FriendRequestLaravelRepository;
+use App\Repositories\Laravel\FriendRequestLaravelRepository;
 use App\Repositories\FriendRequestRepository;
-use App\Repositories\UserLaravelRepository;
+use App\Repositories\Laravel\UserLaravelRepository;
 use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Support\ServiceProvider;

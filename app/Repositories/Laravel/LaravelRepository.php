@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Laravel;
 
+use App\Repositories\Repository;
 use Illuminate\Database\Eloquent\Model;
 
 abstract class LaravelRepository implements Repository

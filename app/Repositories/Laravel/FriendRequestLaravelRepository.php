@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Laravel;
 
 use App\Dto\FriendRequest;
+use App\Repositories\FriendRequestRepository;
 
 class FriendRequestLaravelRepository extends LaravelRepository implements FriendRequestRepository
 {

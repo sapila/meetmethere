@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Laravel;
 
 use App\Dto\User;
+use App\Repositories\UserRepository;
 
 class UserLaravelRepository extends LaravelRepository implements UserRepository
 {
