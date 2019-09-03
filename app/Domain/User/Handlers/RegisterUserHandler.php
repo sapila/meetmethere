@@ -25,7 +25,7 @@ class RegisterUserHandler implements ShouldQueue
      */
     public function handle(RegisterUser $event)
     {
-        $this->repository->createUser($event->user);
-        event(new UserRegistered($event->user));
+        $user = $this->repository->createUser($event->user);
+        event(new UserRegistered($user));
     }
 }

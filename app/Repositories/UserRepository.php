@@ -6,5 +6,5 @@ use App\Dto\User;
 
 interface UserRepository extends Repository
 {
-    public function createUser(User $user);
+    public function createUser(User $user): User;
 }
