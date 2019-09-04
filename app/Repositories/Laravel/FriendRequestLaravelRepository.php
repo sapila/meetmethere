@@ -15,6 +15,15 @@ class FriendRequestLaravelRepository extends LaravelRepository implements Friend
             'status' => $friendRequest->getStatus()
         ]);
 
-        return $friendRequest;
+        return $friendRequest->toDto();
+    }
+
+    public function updateFriendRequestStatus(int $friendRequestId, string $status): FriendRequest
+    {
+        $friendRequest = $this->model->where('id', $friendRequestId)->first();
+        $friendRequest->status = $status;
+        $friendRequest->save();
+
+        return $friendRequest->toDto();
     }
 }

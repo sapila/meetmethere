@@ -5,6 +5,9 @@ namespace App\Dto;
 class FriendRequestDto implements FriendRequest
 {
     /** @var int */
+    private $id;
+
+    /** @var int */
     private $fromUserId;
 
     /** @var int */
@@ -12,6 +15,16 @@ class FriendRequestDto implements FriendRequest
 
     /** @var string */
     private $status;
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return int

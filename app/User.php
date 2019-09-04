@@ -37,6 +37,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function friends()
+    {
+        return $this->belongsToMany(User::class, 'users_friends', 'user_id', 'friend_id');
+    }
+
     public function toDto(): UserDto
     {
         $user = new UserDto();

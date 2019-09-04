@@ -7,4 +7,6 @@ use App\Dto\FriendRequest;
 interface FriendRequestRepository extends Repository
 {
     public function createFriendRequest(FriendRequest $friendRequest): FriendRequest;
+
+    public function updateFriendRequestStatus(int $friendRequestId, string $status): FriendRequest;
 }

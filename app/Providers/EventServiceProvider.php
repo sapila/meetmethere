@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Domain\User\Messages\FriendRequestAccepted;
 use App\Domain\User\Messages\InitiateFriendRequest;
 use App\Domain\User\Messages\RegisterUser;
+use App\Domain\User\Messages\UpdateFriendRequestStatus;
 use App\Domain\User\Messages\UserRegistered;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -23,6 +25,12 @@ class EventServiceProvider extends ServiceProvider
         ],
         InitiateFriendRequest::class => [
             'App\Domain\User\Handlers\InitiateFriendRequestHandler'
+        ],
+        UpdateFriendRequestStatus::class => [
+            'App\Domain\User\Handlers\UpdateFriendRequestStatusHandler'
+        ],
+        FriendRequestAccepted::class => [
+            'App\Domain\User\Handlers\FriendRequestAcceptedHandler'
         ]
     ];
 
