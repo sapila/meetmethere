@@ -10,5 +10,5 @@ interface FriendRequestRepository extends Repository
 
     public function updateFriendRequestStatus(int $friendRequestId, string $status): FriendRequest;
 
-    public function findForIdAndFromUserId(int $id, int $fromUserId): ?FriendRequest;
+    public function findByIdAndFromUserId(int $id, int $fromUserId): ?FriendRequest;
 }

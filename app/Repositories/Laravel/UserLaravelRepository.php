@@ -26,4 +26,16 @@ class UserLaravelRepository extends LaravelRepository implements UserRepository
         $user = $this->model->where('id', $userId)->first();
         $user->friends()->attach($friendId);
     }
+
+    public function findByUsername(string $username): ?User
+    {
+        /** @var \App\User $user */
+        $user = $this->model->where('username', $username)->first();
+
+        if (!$user) {
+            return null;
+        }
+
+        return $user->toDto();
+    }
 }
