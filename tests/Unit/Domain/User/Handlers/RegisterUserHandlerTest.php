@@ -34,13 +34,13 @@ class RegisterUserHandlerTest extends TestCase
 
         $password = 'pass';
         $this->inputUser = new UserDto();
-        $this->inputUser->setName('tester');
+        $this->inputUser->setUsername('tester');
         $this->inputUser->setPassword($password);
         $this->inputUser->setEmail('test@mail.com');
 
         $this->outputUser = new UserDto();
         $this->outputUser->setId(5);
-        $this->outputUser->setName('tester');
+        $this->outputUser->setUsername('tester');
         $this->outputUser->setPassword(Hash::make($password));
         $this->outputUser->setEmail('test@mail.com');
 

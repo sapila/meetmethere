@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'api_token'
+        'username', 'email', 'password', 'api_token'
     ];
 
     /**
@@ -50,7 +50,7 @@ class User extends Authenticatable
         $user = new UserDto();
 
         $user->setId($this->id);
-        $user->setName($this->name);
+        $user->setUsername($this->username);
         $user->setEmail($this->email);
         $user->setApiToken($this->api_token);
         $user->setPassword($this->password);

@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Gate;
+use App\Services\AuthenticationLaravelService;
+use App\Services\AuthenticationService;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -15,6 +16,15 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         // 'App\Model' => 'App\Policies\ModelPolicy',
     ];
+
+    public function register()
+    {
+        parent::register();
+
+        $this->app->bind(AuthenticationService::class, function($app) {
+            return new AuthenticationLaravelService();
+        });
+    }
 
     /**
      * Register any authentication / authorization services.

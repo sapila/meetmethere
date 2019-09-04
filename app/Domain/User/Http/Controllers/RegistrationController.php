@@ -15,7 +15,7 @@ class RegistrationController extends Controller
     {
         $user = new UserDto();
 
-        $user->setName($request->get('name'));
+        $user->setUsername($request->get('username'));
         $user->setEmail($request->get('email'));
         $user->setPassword(Hash::make($request->get('password')));
         $user->setApiToken(Str::random(60));

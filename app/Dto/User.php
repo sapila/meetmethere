@@ -8,9 +8,9 @@ interface User
 
     public function getId(): int;
 
-    public function setName(string $name);
+    public function setUsername(string $username);
 
-    public function getName(): string;
+    public function getUsername(): string;
 
     public function setEmail(string $email);
 

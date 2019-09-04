@@ -36,12 +36,12 @@ class InitiateFriendRequestHandlerTest extends TestCase
         $this->friendRequestRepository = $this->createMock(FriendRequestRepository::class);
 
         $this->fromUser = new UserDto();
-        $this->fromUser->setName('firstuser');
+        $this->fromUser->setUsername('firstuser');
         $this->fromUser->setId(1);
         $this->fromUser->setEmail('firstuser@mail.com');
 
         $this->toUser = new UserDto();
-        $this->toUser->setName('seconduser');
+        $this->toUser->setUsername('seconduser');
         $this->toUser->setId(2);
         $this->toUser->setEmail('seconduser@mail.com');
 

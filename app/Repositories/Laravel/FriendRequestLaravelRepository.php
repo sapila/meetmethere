@@ -26,4 +26,15 @@ class FriendRequestLaravelRepository extends LaravelRepository implements Friend
 
         return $friendRequest->toDto();
     }
+
+    public function findForIdAndFromUserId(int $id, int $fromUserId): ?FriendRequest
+    {
+        $friendRequest = $this->model->where('id', $id)->where('to_user_id', $fromUserId)->first();
+
+        if (!$friendRequest) {
+            return null;
+        }
+
+        return $friendRequest->toDto();
+    }
 }

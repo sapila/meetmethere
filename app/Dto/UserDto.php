@@ -8,7 +8,7 @@ class UserDto implements User
     private $id;
 
     /** @var string */
-    private $name;
+    private $username;
 
     /** @var string */
     private $email;
@@ -38,17 +38,17 @@ class UserDto implements User
     /**
      * @return string
      */
-    public function getName(): string
+    public function getUsername(): string
     {
-        return $this->name;
+        return $this->username;
     }
 
     /**
-     * @param string $name
+     * @param string $username
      */
-    public function setName(string $name): void
+    public function setUsername(string $username): void
     {
-        $this->name = $name;
+        $this->username = $username;
     }
 
     /**

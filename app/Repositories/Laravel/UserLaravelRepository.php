@@ -11,7 +11,7 @@ class UserLaravelRepository extends LaravelRepository implements UserRepository
     {
         /** @var \App\User $user */
         $user = $this->model->create([
-            'name' => $user->getName(),
+            'username' => $user->getUsername(),
             'email' => $user->getEmail(),
             'password' => $user->getPassword(),
             'api_token' => $user->getApiToken()

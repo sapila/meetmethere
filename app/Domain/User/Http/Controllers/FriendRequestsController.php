@@ -6,17 +6,18 @@ use App\Domain\User\Messages\InitiateFriendRequest;
 use App\Domain\User\Messages\UpdateFriendRequestStatus;
 use App\FriendRequest;
 use App\Http\Controllers\Controller;
+use App\Repositories\FriendRequestRepository;
+use App\Services\AuthenticationService;
 use App\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class FriendRequestsController extends Controller
 {
-    public function create(Request $request)
+    public function create(Request $request, AuthenticationService $authenticationService)
     {
-        $fromUser = Auth::user();
-        $toUser = User::where('email',$request->get('email'))->first();
+        $fromUser = $authenticationService->getAuthenticatedUser();
+        $toUser = User::where('username',$request->get('username'))->first();
 
         if(!$toUser) {
             return new JsonResponse('User not found', 404);
@@ -30,9 +31,14 @@ class FriendRequestsController extends Controller
         ));
     }
 
-    public function patch(Request $request) // todo create validation request
+    public function patch(Request $request, AuthenticationService $authenticationService, FriendRequestRepository $friendRequestRepository) // todo create validation request
     {
-        $friendRequest = FriendRequest::where('id', $request->route('friendRequestId'))->first();
+        $user = $authenticationService->getAuthenticatedUser();
+
+        $friendRequest = $friendRequestRepository->findForIdAndFromUserId(
+            $request->route('friendRequestId'),
+            $user->id
+        );
 
         if (!$friendRequest) {
             return new JsonResponse('Resource not found', 404);
