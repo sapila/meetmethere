@@ -4,12 +4,10 @@ namespace App\Domain\User\Http\Controllers;
 
 use App\Domain\User\Messages\InitiateFriendRequest;
 use App\Domain\User\Messages\UpdateFriendRequestStatus;
-use App\FriendRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\FriendRequestRepository;
 use App\Repositories\UserRepository;
 use App\Services\AuthenticationService;
-use App\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -30,6 +28,8 @@ class FriendRequestsController extends Controller
             $fromUser,
             $toUser
         ));
+
+        return response(null, 200);
     }
 
     public function patch(Request $request, AuthenticationService $authenticationService, FriendRequestRepository $friendRequestRepository) // todo create validation request
@@ -46,6 +46,8 @@ class FriendRequestsController extends Controller
         }
 
         event(new UpdateFriendRequestStatus($friendRequest, $request->get('status')));
+
+        return response(null, 200);
     }
 
 }

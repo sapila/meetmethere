@@ -21,4 +21,6 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth:api'])->group(function () {
     Route::post('/friend-requests', 'User\Http\Controllers\FriendRequestsController@create');
     Route::patch('/friend-invites/{friendRequestId}', 'User\Http\Controllers\FriendRequestsController@patch');
+
+    Route::post('/groups', 'Group\Http\Controllers\GroupController@create');
 });

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Domain\Group\Messages\CreateGroup;
 use App\Domain\User\Messages\FriendRequestAccepted;
 use App\Domain\User\Messages\InitiateFriendRequest;
 use App\Domain\User\Messages\RegisterUser;
@@ -31,6 +32,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         FriendRequestAccepted::class => [
             'App\Domain\User\Handlers\FriendRequestAcceptedHandler'
+        ],
+        CreateGroup::class => [
+            'App\Domain\Group\Handlers\CreateGroupHandler'
         ]
     ];
 
