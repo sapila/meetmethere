@@ -11,4 +11,6 @@ interface GroupRepository extends Repository
     public function createGroup(Group $user): Group;
 
     public function addUserToGroup(int $userId, int $groupId): void;
+
+    public function getUsersForGroup(int $groupId): array;
 }

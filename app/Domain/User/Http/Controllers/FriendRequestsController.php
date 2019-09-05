@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 
 class FriendRequestsController extends Controller
 {
-    public function create(Request $request, AuthenticationService $authenticationService, UserRepository $userRepository)
+    public function store(Request $request, AuthenticationService $authenticationService, UserRepository $userRepository)
     {
         $fromUser = $authenticationService->getAuthenticatedUser();
         $toUser = $userRepository->findByUsername($request->get('username'));
@@ -32,7 +32,7 @@ class FriendRequestsController extends Controller
         return response(null, 200);
     }
 
-    public function patch(Request $request, AuthenticationService $authenticationService, FriendRequestRepository $friendRequestRepository) // todo create validation request
+    public function update(Request $request, AuthenticationService $authenticationService, FriendRequestRepository $friendRequestRepository) // todo create validation request
     {
         $user = $authenticationService->getAuthenticatedUser();
 

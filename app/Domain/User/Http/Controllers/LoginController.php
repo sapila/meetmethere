@@ -7,7 +7,6 @@ use App\Services\AuthenticationService;
 use App\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -24,6 +23,13 @@ class LoginController extends Controller
 
         $user = User::where('email', $request->get('email'))->first();
 
-        return $user;
+        return new JsonResponse(
+            [
+                'username' => $user->username,
+                'email' => $user->email,
+                'api_token' => $user->api_token
+            ],
+            200
+        );
     }
 }

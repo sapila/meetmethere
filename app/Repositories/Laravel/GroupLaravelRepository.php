@@ -36,4 +36,10 @@ class GroupLaravelRepository extends LaravelRepository implements GroupRepositor
         $group = $this->model->where('id', $groupId)->first();
         $group->users()->attach($userId);
     }
+
+    public function getUsersForGroup(int $groupId): array
+    {
+        $group = $this->model->where('id', $groupId)->with('users')->first();
+        return $group->users->toArray();
+    }
 }

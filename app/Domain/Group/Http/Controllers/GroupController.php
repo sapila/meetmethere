@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 
 class GroupController extends Controller
 {
-    public function create(CreateGroupRequest $request, AuthenticationService $authenticationService)
+    public function store(CreateGroupRequest $request, AuthenticationService $authenticationService)
     {
         $user = $authenticationService->getAuthenticatedUser();
 
@@ -41,5 +41,11 @@ class GroupController extends Controller
         event(new RsvpUserToGroup($user, $group));
 
         return response(null, 200);
+    }
+
+    public function getGroupUsers(Request $request, GroupRepository $groupRepository)
+    {
+        $users = $groupRepository->getUsersForGroup($request->route('groupId'));
+        return new JsonResponse($users, 200);
     }
 }

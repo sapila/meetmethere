@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class RegistrationController extends Controller
 {
-    public function register(RegistrationRequest $request)
+    public function store(RegistrationRequest $request)
     {
         $user = new UserDto();
 
