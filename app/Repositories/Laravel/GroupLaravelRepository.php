@@ -3,8 +3,9 @@
 namespace App\Repositories\Laravel;
 
 use App\Dto\Group;
+use App\Repositories\GroupRepository;
 
-class GroupLaravelRepository extends LaravelRepository implements UserRepository
+class GroupLaravelRepository extends LaravelRepository implements GroupRepository
 {
     public function createGroup(Group $group): Group
     {

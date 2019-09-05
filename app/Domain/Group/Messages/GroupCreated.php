@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Group\Message;
+namespace App\Domain\Group\Messages;
 
 use App\Dto\Group;
 use Illuminate\Queue\SerializesModels;

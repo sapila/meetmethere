@@ -2,9 +2,9 @@
 
 namespace App\Domain\Group\Handlers;
 
-use App\Domain\Group\Message\GroupCreated;
+use App\Domain\Group\Messages\GroupCreated;
+use App\Domain\Group\Messages\CreateGroup;
 use App\Dto\GroupDto;
-use App\Events\CreateGroup;
 use App\Repositories\GroupRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
