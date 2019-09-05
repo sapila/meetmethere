@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Domain\Group\Messages\CreateGroup;
+use App\Domain\Group\Messages\RsvpUserToGroup;
 use App\Domain\User\Messages\FriendRequestAccepted;
 use App\Domain\User\Messages\InitiateFriendRequest;
 use App\Domain\User\Messages\RegisterUser;
@@ -35,6 +36,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         CreateGroup::class => [
             'App\Domain\Group\Handlers\CreateGroupHandler'
+        ],
+        RsvpUserToGroup::class => [
+            'App\Domain\Group\Handlers\RsvpUserToGroupHandler'
         ]
     ];
 

@@ -7,6 +7,17 @@ use App\Repositories\GroupRepository;
 
 class GroupLaravelRepository extends LaravelRepository implements GroupRepository
 {
+    public function getById(int $id): ?Group
+    {
+        $group = $this->model->where('id', $id)->first();
+
+        if (!$group) {
+            return null;
+        }
+
+        return $group->toDto();
+    }
+
     public function createGroup(Group $group): Group
     {
         /** @var \App\Group $group */
@@ -17,5 +28,12 @@ class GroupLaravelRepository extends LaravelRepository implements GroupRepositor
         ]);
 
         return $group->toDto();
+    }
+
+    public function addUserToGroup(int $userId, int $groupId): void
+    {
+        /** @var \App\Group $group */
+        $group = $this->model->where('id', $groupId)->first();
+        $group->users()->attach($userId);
     }
 }

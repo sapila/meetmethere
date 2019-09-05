@@ -11,6 +11,11 @@ class Group extends Model
         'name', 'description', 'owner_user_id'
     ];
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'users_groups', 'group_id', 'user_id');
+    }
+
     public function toDto()
     {
         $group = new GroupDto();

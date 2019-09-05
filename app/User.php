@@ -45,6 +45,11 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'users_friends', 'user_id', 'friend_id');
     }
 
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'users_groups', 'user_id', 'group_id');
+    }
+
     public function toDto(): UserDto
     {
         $user = new UserDto();
