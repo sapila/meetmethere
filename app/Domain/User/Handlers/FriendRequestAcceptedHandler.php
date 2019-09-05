@@ -23,15 +23,16 @@ class FriendRequestAcceptedHandler implements ShouldQueue
      */
     public function handle(FriendRequestAccepted $event)
     {
-        $this->repository->addFriendToUser(
-            $event->friendRequest->getFromUserId(),
-            $event->friendRequest->getToUserId()
-        );
+        $fromUserId = $event->friendRequest->getFromUserId();
+        $toUserId =  $event->friendRequest->getToUserId();
 
-        $this->repository->addFriendToUser(
-            $event->friendRequest->getToUserId(),
-            $event->friendRequest->getFromUserId()
-        );
+        if (!$this->repository->usersAreFriends($fromUserId, $toUserId)) {
+            $this->repository->addFriendToUser($fromUserId, $toUserId);
+        }
+
+        if (!$this->repository->usersAreFriends($toUserId, $fromUserId)) {
+            $this->repository->addFriendToUser($toUserId, $fromUserId);
+        }
 
         event(new FriendshipEstablished($event->friendRequest));
     }

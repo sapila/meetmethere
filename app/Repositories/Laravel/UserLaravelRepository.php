@@ -27,6 +27,13 @@ class UserLaravelRepository extends LaravelRepository implements UserRepository
         $user->friends()->attach($friendId);
     }
 
+    public function usersAreFriends(int $userId, int $friendId): bool
+    {
+        /** @var \App\User $user */
+        $user = $this->model->where('id', $userId)->first();
+        return $user->friends()->where('friend_id', $friendId)->exists();
+    }
+
     public function findByUsername(string $username): ?User
     {
         /** @var \App\User $user */

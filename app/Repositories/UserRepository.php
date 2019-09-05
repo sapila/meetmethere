@@ -10,5 +10,7 @@ interface UserRepository extends Repository
 
     public function addFriendToUser(int $userId, int $friendId): void;
 
+    public function usersAreFriends(int $userId, int $friendId): bool;
+
     public function findByUsername(string $username): ?User;
 }
