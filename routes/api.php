@@ -30,7 +30,7 @@ Route::middleware(['auth:api'])->group(function () {
     Route::get('/friend-invites', 'User\Http\Controllers\FriendRequestsController@indexInvites');
     Route::patch('/friend-invites/{friendRequestId}', 'User\Http\Controllers\FriendRequestsController@update');
 
-    Route::get('/groups', 'Group\Http\Controllers\GroupController@index'); // TODO + search
+    Route::get('/groups', 'Group\Http\Controllers\GroupController@index');
     Route::get('/groups/{groupId}', 'Group\Http\Controllers\GroupController@show');
     Route::post('/groups', 'Group\Http\Controllers\GroupController@store');
 

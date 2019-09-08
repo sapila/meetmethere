@@ -45,6 +45,10 @@ class UserController extends Controller
     {
         $user = $userRepository->findByUsername($request->route('username'));
 
+        if (!$user) {
+            return new JsonResponse('User not found', 404);
+        }
+
         return new JsonResponse(
             (new UserPresenter())->single($user),
             200

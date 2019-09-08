@@ -1,6 +1,16 @@
 # Meet Me There
 Meet Me There is an example social application.
 
+
+### Setup
+```
+cp .env.docker-compose .env
+docker-compose exec php-fpm php artisan migrate
+docker-compose exec php-fpm php artisan db:seed
+```
+
+
+
 Example architecture for high scale use: 
 
 ![alt text](architecture.jpg)

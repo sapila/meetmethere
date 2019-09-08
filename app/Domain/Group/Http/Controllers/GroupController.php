@@ -45,6 +45,11 @@ class GroupController extends Controller
     public function show(Request $request, GroupRepository $groupRepository)
     {
         $group = $groupRepository->findById((int) $request->route('groupId'));
+
+        if (!$group) {
+            return new JsonResponse('Group not found', 404);
+        }
+
         return new JsonResponse(
             (new GroupPresenter())->single($group),
             200
