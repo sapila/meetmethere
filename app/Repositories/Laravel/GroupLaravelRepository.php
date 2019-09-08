@@ -3,11 +3,13 @@
 namespace App\Repositories\Laravel;
 
 use App\Dto\Group;
+use App\Dto\GroupDto;
+use App\Dto\UserDto;
 use App\Repositories\GroupRepository;
 
 class GroupLaravelRepository extends LaravelRepository implements GroupRepository
 {
-    public function getById(int $id): ?Group
+    public function findById(int $id): ?Group
     {
         $group = $this->model->where('id', $id)->first();
 
@@ -40,6 +42,34 @@ class GroupLaravelRepository extends LaravelRepository implements GroupRepositor
     public function getUsersForGroup(int $groupId): array
     {
         $group = $this->model->where('id', $groupId)->with('users')->first();
-        return $group->users->toArray();
+
+        $users = [];
+
+        $group->users->each(function ($item, $key) use (&$users) {
+            $user = new UserDto();
+            $user->setUsername($item->username);
+            $user->setEmail($item->email);
+
+            $users[] = $user;
+        });
+
+        return $users;
+    }
+
+    public function findByNameLike(string $name): array
+    {
+        $collection = $this->model->where('name', 'LIKE', '%' . $name . '%')->get();
+
+        $groups = [];
+        $collection->each(function ($item, $key) use (&$groups) {
+            $group = new GroupDto();
+            $group->setId($item->id);
+            $group->setName($item->name);
+            $group->setDescription($item->description);
+            $group->setOwnerUserId($item->owner_user_id);
+            $groups[] = $group;
+        });
+
+        return $groups;
     }
 }

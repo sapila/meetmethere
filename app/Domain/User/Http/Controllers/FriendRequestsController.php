@@ -2,6 +2,8 @@
 
 namespace App\Domain\User\Http\Controllers;
 
+use App\Domain\User\Http\Presenters\FriendRequestPresenter;
+use App\Domain\User\Http\Presenters\UserPresenter;
 use App\Domain\User\Messages\InitiateFriendRequest;
 use App\Domain\User\Messages\UpdateFriendRequestStatus;
 use App\Http\Controllers\Controller;
@@ -50,4 +52,27 @@ class FriendRequestsController extends Controller
         return response(null, 200);
     }
 
+    public function indexRequests(AuthenticationService $authenticationService, FriendRequestRepository $friendRequestRepository)
+    {
+        $requests = $friendRequestRepository->findFriendRequestsForUser(
+            $authenticationService->getAuthenticatedUser()->getId()
+        );
+
+        return new JsonResponse(
+            (new FriendRequestPresenter())->collection($requests),
+            200
+        );
+    }
+
+    public function indexInvites(AuthenticationService $authenticationService, FriendRequestRepository $friendRequestRepository)
+    {
+        $requests = $friendRequestRepository->findFriendInvitesForUser(
+            $authenticationService->getAuthenticatedUser()->getId()
+        );
+
+        return new JsonResponse(
+            (new FriendRequestPresenter())->collection($requests),
+            200
+        );
+    }
 }

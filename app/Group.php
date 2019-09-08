@@ -11,6 +11,10 @@ class Group extends Model
         'name', 'description', 'owner_user_id'
     ];
 
+    protected $visible = [
+        'id', 'name', 'description',
+    ];
+
     public function users()
     {
         return $this->belongsToMany(User::class, 'users_groups', 'group_id', 'user_id');
