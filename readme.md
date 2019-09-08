@@ -5,13 +5,13 @@ Meet Me There is an example social application.
 ### Setup
 ```
 cp .env.docker-compose .env
+docker-compose up -d
 docker-compose exec php-fpm php artisan migrate
 docker-compose exec php-fpm php artisan db:seed
 ```
 
-
-
-Example architecture for high scale use: 
+----
+#### Example architecture for high scale use: 
 
 ![alt text](architecture.jpg)
 
