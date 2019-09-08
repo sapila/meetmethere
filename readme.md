@@ -9,6 +9,7 @@ docker-compose up
 docker-compose exec php-fpm php artisan migrate
 docker-compose exec php-fpm php artisan db:seed
 ```
+Import `postman_api.json` to Postman for example usage. The calls use `testuser` user. 
 
 ----
 #### Example architecture for high scale use: 

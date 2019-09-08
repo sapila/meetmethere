@@ -1,0 +1,614 @@
+{
+	"info": {
+		"_postman_id": "5b4de60d-2174-49b7-9a91-0b0bc2ead60c",
+		"name": "meetmethere",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RegisterUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"example\",\n\t\"email\":\"example@mail.com\",\n\t\"password\":\"koekje123\",\n\t\"password_confirmation\": \"koekje123\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0/api/users",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"testuser@gmail.com\",\n\t\"password\":\"testuser\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0/api/login",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer B6bJs7OGv64kuN4mmoxhJpYW3x3UxdklRYmMSvcmE59v1RriZSYLvdoUfDYD",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"tester\",\n\t\"email\":\"tester@mail.com\",\n\t\"password\":\"koekje123\",\n\t\"password_confirmation\": \"koekje123\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0/api/users/st@rk",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"path": [
+						"api",
+						"users",
+						"st@rk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsers - SearchByUsername",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer B6bJs7OGv64kuN4mmoxhJpYW3x3UxdklRYmMSvcmE59v1RriZSYLvdoUfDYD",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0/api/users/?username=st",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"path": [
+						"api",
+						"users",
+						""
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "st"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFriends",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer B6bJs7OGv64kuN4mmoxhJpYW3x3UxdklRYmMSvcmE59v1RriZSYLvdoUfDYD",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"tester\",\n\t\"email\":\"tester@mail.com\",\n\t\"password\":\"koekje123\",\n\t\"password_confirmation\": \"koekje123\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0/api/friends",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"path": [
+						"api",
+						"friends"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateFriendRequest",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer B6bJs7OGv64kuN4mmoxhJpYW3x3UxdklRYmMSvcmE59v1RriZSYLvdoUfDYD",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"st@rk\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0/api/friend-requests",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"path": [
+						"api",
+						"friend-requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFriendRequests",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer B6bJs7OGv64kuN4mmoxhJpYW3x3UxdklRYmMSvcmE59v1RriZSYLvdoUfDYD",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"otheruser\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0/api/friend-requests",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"path": [
+						"api",
+						"friend-requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFriendInvites",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer B6bJs7OGv64kuN4mmoxhJpYW3x3UxdklRYmMSvcmE59v1RriZSYLvdoUfDYD",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"otheruser\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0/api/friend-invites",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"path": [
+						"api",
+						"friend-invites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateFriendInvite",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer B6bJs7OGv64kuN4mmoxhJpYW3x3UxdklRYmMSvcmE59v1RriZSYLvdoUfDYD",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"status\": \"accepted\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0/api/friend-invites/2",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"path": [
+						"api",
+						"friend-invites",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateGroup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer B6bJs7OGv64kuN4mmoxhJpYW3x3UxdklRYmMSvcmE59v1RriZSYLvdoUfDYD",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"House Targaryen\",\n\t\"description\":\"Not a Queen. A Khaleesi.\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0/api/groups",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"path": [
+						"api",
+						"groups"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetGroups",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer B6bJs7OGv64kuN4mmoxhJpYW3x3UxdklRYmMSvcmE59v1RriZSYLvdoUfDYD"
+					}
+				],
+				"url": {
+					"raw": "http://0.0.0.0/api/groups?name=house",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"path": [
+						"api",
+						"groups"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "house"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetGroup",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer B6bJs7OGv64kuN4mmoxhJpYW3x3UxdklRYmMSvcmE59v1RriZSYLvdoUfDYD",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://0.0.0.0/api/groups/3",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"path": [
+						"api",
+						"groups",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RsvpUserToGroup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer B6bJs7OGv64kuN4mmoxhJpYW3x3UxdklRYmMSvcmE59v1RriZSYLvdoUfDYD",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://0.0.0.0/api/groups/3/users",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"path": [
+						"api",
+						"groups",
+						"3",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetGroupUsers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer B6bJs7OGv64kuN4mmoxhJpYW3x3UxdklRYmMSvcmE59v1RriZSYLvdoUfDYD",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://0.0.0.0/api/groups/3/users",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"path": [
+						"api",
+						"groups",
+						"3",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
