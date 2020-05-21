@@ -1,6 +1,8 @@
 # Meet Me There
 Meet Me There is an example social application.
 
+TODO: Currently under the `Domain` folder, there are plenty of classes that should go under an `Infrastructure` folder to clean up the Domain space
+
 
 ### Setup
 ```
